@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="Bursts of Ambient Color.png"  id="x" width="400" style="top: 100px; left: 200px; position: absolute"/>
+<script>
+    let speedx = 10;
+    let speedy = 10;
+    let direction = 1; // Hướng di chuyển theo chiều ngang, 1 là qua phải, -1 là qua trái
+
+    setInterval(() => {
+        let x = document.getElementById('x');
+        let currentLeft = parseInt(x.style.left);
+        let currentTop = parseInt(x.style.top);
+
+        // Di chuyển theo chiều ngang
+        x.style.left = currentLeft + speedx * direction + "px";
+
+        // Nếu chạm vào cạnh phải hoặc trái, đảo hướng và di chuyển xuống
+        if (currentLeft >= window.innerWidth - x.width || currentLeft <= 0) {
+            direction *= -1;
+            x.style.top = currentTop + speedy + "px";
+        }
+
+        // Nếu chạm vào cạnh dưới, di chuyển từ phải sang trái
+        if (currentTop >= window.innerHeight - x.height) {
+            direction = -1; // Đảo hướng
+            x.style.left = currentLeft - speedx + "px";
+        }
+    }, 1);
+</script>
+</body>
+</html>

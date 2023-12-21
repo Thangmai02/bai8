@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiểm tra tam giác</title>
+</head>
+<body>
+bai 9
+<table border="1" style="border: white ; background: coral  ">
+    <td colspan="2"> kiểm tra tam giác</td>
+    </tr>
+    <tr>
+        <td>Nhập a</td>
+        <td><input id="id1" type="number"></td>
+    </tr>
+    <tr>
+        <td>Nhập b</td>
+        <td><input id="id2" type="number"></td>
+    </tr>
+    <tr>
+        <td>Nhập c </td>
+        <td><input id="id3" type="number"></td>
+    </tr>
+    <tr>
+        <td><button onclick="tinh()"> kiểm tra</button>  </td>
+        <td><input id="kq" type="text"></td>
+    </tr>
+    <script>
+
+        function tinh() {
+            let a = parseFloat(document.getElementById('id1').value);
+            let b = parseFloat(document.getElementById('id2').value);
+            let c = parseFloat(document.getElementById('id3').value);
+
+            if (a>0 && b>0 && c>0) {
+                if ((a + b) > c && (b + c) > a && (c + a) > b) {
+                    document.getElementById('kq').value = "  là cạnh của tam giác";
+
+                } else {
+                    document.getElementById('kq').value = " không là cạnh của tam giác";
+
+                }
+            }else {
+                document.getElementById('kq').value=" nhập lớn hơn 0";
+
+            }
+        }
+
+    </script>
+</table>
+</body>
+</html>
